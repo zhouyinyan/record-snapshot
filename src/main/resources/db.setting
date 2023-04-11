@@ -1,0 +1,39 @@
+## db.setting文件
+
+url = jdbc:mysql://139.9.245.198:3306/ims
+user = root
+pass = Admin-2023
+
+## 可选配置
+# 是否在日志中显示执行的SQL
+showSql = true
+# 是否格式化显示的SQL
+formatSql = false
+# 是否显示SQL参数
+showParams = true
+# 打印SQL的日志等级，默认debug，可以是info、warn、error
+sqlLevel = debug
+
+## druid连接池配置
+# 初始化时建立物理连接的个数。初始化发生在显示调用init方法，或者第一次getConnection时
+initialSize = 0
+# 最大连接池数量
+maxActive = 8
+# 最小连接池数量
+minIdle = 0
+# 获取连接时最大等待时间，单位毫秒。
+maxWait = 0
+# 用来检测连接是否有效的sql，要求是一个查询语句。 如果validationQuery为null，testOnBorrow、testOnReturn、 testWhileIdle都不会其作用。
+validationQuery = SELECT 1
+# 申请连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能。
+testOnBorrow = true
+# 归还连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能
+testOnReturn = false
+# 建议配置为true，不影响性能，并且保证安全性。 申请连接的时候检测，如果空闲时间大于 timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效。
+testWhileIdle = true
+# 有两个含义： 1) Destroy线程会检测连接的间隔时间 2) testWhileIdle的判断依据，详细看testWhileIdle属性的说明
+timeBetweenEvictionRunsMillis = 60000
+# 物理连接初始化的时候执行的sql
+connectionInitSqls = SELECT 1
+# 属性类型是字符串，通过别名的方式配置扩展插件， 常用的插件有： 监控统计用的filter:stat  日志用的filter:log4j 防御sql注入的filter:wall
+filters = stat
